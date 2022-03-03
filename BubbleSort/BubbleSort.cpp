@@ -7,7 +7,6 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 #include <iostream>
-#include <array>
 using namespace std;
 
 
@@ -21,6 +20,10 @@ int* bubble_sort(int toBeSorted[], int listSize) {
 	while (!sorted) {
 		sorted = true;
 		for (int i = 0; i < unsorted_until_index; i++) {
+
+			// compare two values (prev and next)
+			// if the previous is greater than the next value
+			// swap them
 			if (toBeSorted[i] > toBeSorted[i + 1]) {
 				temp = toBeSorted[i];
 				toBeSorted[i] = toBeSorted[i + 1];
@@ -29,6 +32,8 @@ int* bubble_sort(int toBeSorted[], int listSize) {
 			}
 		}
 	}
+
+	// return the sorted array
 	return toBeSorted;
 
 }

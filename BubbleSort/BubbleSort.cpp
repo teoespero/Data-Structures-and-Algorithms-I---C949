@@ -38,17 +38,29 @@ int* bubble_sort(int toBeSorted[], int listSize) {
 
 }
 
-int main(){
-	int myArray[] = {3,2,4,1,8,5,6,9,7};
-	int len = (sizeof(myArray) / sizeof(myArray[0]));
+// function for printing our sorted array
+void print(int *theArray, int theSize) {
 
-	int* myPtr = bubble_sort(myArray, len);
-
-	for (int i = 0; i < 9; ++i) {
-		cout << myPtr[i];
-		if (i < len -1) 
+	for (int i = 0; i < theSize; ++i) {
+		cout << theArray[i];
+		if (i < theSize - 1)
 			cout << ", ";
 	}
+}
+
+int main(){
+
+	// declare an array of numbers
+	int myArray[] = {3,2,4,1,8,5,6,9,7};
+
+	// determine our array size
+	int len = (sizeof(myArray) / sizeof(myArray[0]));
+
+	// pass the array to our bubble sort function
+	int* myPtr = bubble_sort(myArray, len);
+
+	// print out the sorted array
+	print(myPtr, len);
 
 	return 0;
 }

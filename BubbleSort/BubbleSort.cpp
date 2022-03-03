@@ -38,6 +38,7 @@ int* bubble_sort(int toBeSorted[], int listSize) {
 
 }
 
+////////////////////////////////////////////////////////////////////////////////
 // function for printing our sorted array
 void print(int *theArray, int theSize) {
 

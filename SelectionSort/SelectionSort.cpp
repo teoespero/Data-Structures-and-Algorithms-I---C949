@@ -26,6 +26,7 @@ void print(int* theArray, int theSize) {
 int* selectionSort(int arrayToSort[], int arraySize) {
 	int lowestNumberIndex = 0;
 	int temp, steps = 0;
+	int comparisonCtr = 0;
 
 	// go through then list and compare the values
 	// to get the lowest value's index
@@ -34,14 +35,16 @@ int* selectionSort(int arrayToSort[], int arraySize) {
 		// set the current index as the lowest value
 		// this changes when a new value is found
 		lowestNumberIndex = ptr;
+		++steps;
+		cout << "Pass # " << steps << " - ";
+		print(arrayToSort, arraySize);
+		cout << " -> " << (arraySize - 1) - ptr << " comparisons";
+		comparisonCtr = comparisonCtr + ((arraySize - 1) - ptr);
+		cout << endl;
 		for (int nextPtr = ptr + 1; nextPtr < arraySize; nextPtr++) {
 
 			// show the steps, and the resulting array
-			++steps;
-			cout << "Pass # " << steps << " - ";
-			print(arrayToSort, arraySize);
-			cout << endl;
-			if (arrayToSort[nextPtr] < arrayToSort[lowestNumberIndex]) 
+			if (arrayToSort[nextPtr] < arrayToSort[lowestNumberIndex])
 				lowestNumberIndex = nextPtr;
 		}
 
@@ -52,12 +55,13 @@ int* selectionSort(int arrayToSort[], int arraySize) {
 			arrayToSort[ptr] = arrayToSort[lowestNumberIndex];
 			arrayToSort[lowestNumberIndex] = temp;
 		}
-
 	}
 
 	// once we are done doing the pass throughs
 	// the sorted arrays are sent back to the 
 	// main program
+
+	cout << endl << comparisonCtr << " Total comparisons performed..." << endl;
 	return arrayToSort;
 }
 
@@ -68,7 +72,7 @@ int* selectionSort(int arrayToSort[], int arraySize) {
 // main program
 int main(){  
 	// declare an array of numbers
-	int myArray[] = { 3,2,4,1,8,5,6,9,7 };
+	int myArray[] = {4,2,7,1,3 };
 
 	// determine our array size
 	int len = (sizeof(myArray) / sizeof(myArray[0]));
